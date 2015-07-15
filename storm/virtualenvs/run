@@ -1,0 +1,7 @@
+#!/bin/bash
+# Don't send SIGTTOU when going to background
+stty -tostop
+# Remove old logs
+rm -rf storm/logs/*
+# the -p flag is set to the nmuber of cores in the AWS c4.2xlarge
+export PYTHONPATH=`pwd` && sparse run -p 10 -n microbrew
